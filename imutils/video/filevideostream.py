@@ -28,6 +28,12 @@ class FileVideoStream:
 		self.thread = Thread(target=self.update, args=())
 		self.thread.daemon = True
 
+	def isOpened(self, *args, **kwargs):
+		return self.stream.isOpened(*args, **kwargs)
+
+	def get(self, *args, **kwargs):
+		return self.stream.get(*args, **kwargs)
+		
 	def start(self):
 		# start a thread to read frames from the file video stream
 		self.thread.start()
